@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SecureSoftwareDevelopment.Models.FileUpload>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("File Name")
+        </th>
+        <th>
+            @Html.DisplayName("File Size")
+        </th>
+        <th>
+            @Html.DisplayName("Document Type")
+        </th>
+        <th>
+            @Html.DisplayName("Document Location")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SetFileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.expectedSizeofFile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.documentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.docLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.fileID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.fileID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.fileID }) |
+            @Html.ActionLink("Copy To", "CopyTo", new { id = item.fileID })
+        </td>
+    </tr>
+}
+
+</table>
